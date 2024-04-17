@@ -1,1 +1,3 @@
-# django-template
+# Django Template
+
+Django web application template
