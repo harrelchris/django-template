@@ -6,7 +6,7 @@ if (-not (Test-Path .venv)) {
 
 python -m pip install pip setuptools wheel --upgrade
 
-pip install -r requirements.txt --upgrade
+pip install black flake8 -r requirements.txt --upgrade
 
 if (-not (Test-Path .env)) {
     Copy-Item .\envs\dev.env .env
