@@ -16,15 +16,13 @@
 
 #>
 
-$env = Get-Content -Path .\envs\test.env
-
-foreach ($line in $env) {
+foreach ($line in Get-Content -Path .\envs\test.env) {
     if ($line.Trim() -eq "" -or $line.StartsWith("#")) {
         continue
     }
 
     $key, $value = $line -split '=', 2
-    Set-Variable -Name "env:$key" -Value $value
+    Set-Item -Path "env:$key" -Value $value
 }
 
 .venv\Scripts\activate
