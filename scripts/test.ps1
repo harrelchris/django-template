@@ -16,7 +16,7 @@
 
 #>
 
-foreach ($line in Get-Content -Path .\envs\test.env) {
+foreach ($line in Get-Content -Path .\.envs\test.env) {
     if ($line.Trim() -eq "" -or $line.StartsWith("#")) {
         continue
     }

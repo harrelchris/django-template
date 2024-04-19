@@ -28,7 +28,7 @@ python -m pip install pip setuptools wheel --upgrade
 pip install ruff -r requirements.txt --upgrade
 
 if (-not (Test-Path .env)) {
-    Copy-Item .\envs\dev.env .env
+    Copy-Item .\.envs\dev.env .env
 }
 
 if (Test-Path db.sqlite3) {
