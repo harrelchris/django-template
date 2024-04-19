@@ -2,8 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import TemplateView
 from django.views import defaults
+from django.views.generic import TemplateView
 
 admin.site.index_title = "Site administration"
 admin.site.name = "Django Admin"
@@ -37,7 +37,7 @@ if settings.DEBUG:
                 kwargs={"exception": Exception("Not Found")},
             ),
             path("500/", defaults.server_error),
-        ]
+        ],
     )
     urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
     urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
