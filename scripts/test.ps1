@@ -4,7 +4,8 @@
 
 .DESCRIPTION
     This script runs tests for a Django web application located in the 'app' directory.
-    It activates the virtual environment and runs the tests.
+    It activates the virtual environment, sets environment variables, runs collectstatic,
+    and then runs the tests.
 
 .PARAMETER None
     This script does not accept any parameters.
@@ -15,6 +16,18 @@
 
 #>
 
+$env = Get-Content -Path .\envs\test.env
+
+foreach ($line in $env) {
+    if ($line.Trim() -eq "" -or $line.StartsWith("#")) {
+        continue
+    }
+
+    $key, $value = $line -split '=', 2
+    Set-Variable -Name "env:$key" -Value $value
+}
+
 .venv\Scripts\activate
 
+python app\manage.py collectstatic --noinput
 python app\manage.py test app
