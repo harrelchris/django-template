@@ -20,12 +20,12 @@ $profilePath = $PROFILE
 
 # Create PowerShell Profile if it doesn't exist
 if (-not (Test-Path $profilePath)) {
-    New-Item -Path $profilePath -ItemType File
+    New-Item -Path $profilePath -ItemType File -Force
 }
 
 # Function to check if a line exists in the profile script
 function LineExistsInProfile($line) {
-    $content = Get-Content -Path $profilePath -ErrorAction SilentlyContinue -Force
+    $content = Get-Content -Path $profilePath -ErrorAction SilentlyContinue
     if ($content -contains $line) {
         return $true
     } else {
