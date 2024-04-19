@@ -4,3 +4,6 @@ django-allauth-ui
 django-debug-toolbar
 django-environ
 django-widget-tweaks
+gunicorn
+psycopg2-binary
+whitenoise
