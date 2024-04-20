@@ -135,3 +135,12 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 LOGIN_REDIRECT_URL = "users:profile"
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:80",
+    "http://0.0.0.0:80",
+]
