@@ -19,6 +19,7 @@ Clone the repo and run initialization script
 
 1. [Scripts](#scripts)
 1. [Docker](#docker)
+1. [Compose](#docker-compose)
 
 ## Scripts
 
@@ -94,16 +95,16 @@ Migrate
 docker exec -it app python app/manage.py migrate
 ```
 
-Create Super User
-
-```shell
-docker exec -it app python app/manage.py createsuperuser --username user --email user@email.com --noinput
-```
-
 Collect Static
 
 ```shell
 docker exec -it app python app/manage.py collectstatic --noinput
+```
+
+Create Super User
+
+```shell
+docker exec -it app python app/manage.py createsuperuser --username user --email user@email.com
 ```
 
 ### Stop
@@ -124,4 +125,82 @@ Image
 
 ```shell
 docker rmi app
+```
+
+---
+
+## Docker Compose
+
+### Build
+
+```shell
+docker compose build
+```
+
+### Run
+
+```shell
+docker compose up -d
+```
+
+### Exec
+
+Migrate
+
+```shell
+docker compose exec web python app/manage.py migrate
+```
+
+Collect Static
+
+```shell
+docker compose exec web python app/manage.py collectstatic --no-input
+```
+
+Create Super User
+
+```shell
+docker compose exec web python app/manage.py createsuperuser --username user --email user@email.com --noinput
+```
+
+### Stop
+
+```shell
+docker compose down
+```
+
+### Remove
+
+Web
+
+```shell
+docker rmi "web"
+```
+
+NGINX
+
+```shell
+docker rmi "nginx"
+```
+
+Postgres
+
+```shell
+docker rmi "postgres"
+```
+
+Volumes
+
+```shell
+docker volume rm django-template_static
+```
+
+```shell
+docker volume rm django-template_db
+```
+
+## Shell
+
+```shell
+docker compose exec web bash
 ```
