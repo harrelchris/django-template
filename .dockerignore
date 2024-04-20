@@ -1,6 +1,10 @@
+.docker/
+.envs/
 .git/
+.github/
 .idea/
 .local/
+.ruff_cache/
 .static/
 .venv/
 __pycache__/
@@ -12,5 +16,7 @@ scripts/
 .env
 .gitignore
 db.sqlite3
+docker-compose.yaml
 Dockerfile
+pyproject.toml
 README.md
