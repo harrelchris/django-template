@@ -160,7 +160,7 @@ docker compose exec web python app/manage.py collectstatic --no-input
 Create Super User
 
 ```shell
-docker compose exec web python app/manage.py createsuperuser --username user --email user@email.com --noinput
+docker compose exec web python app/manage.py createsuperuser --username user --email user@email.com
 ```
 
 ### Stop
